@@ -11,22 +11,15 @@ object RemoveElement {
   }
 
   def removeElement(nums: Array[Int], `val`: Int): Int = {
-    val len = nums.length
-    var step = 0
-    for (i <- 0 to len - 1) {
-
-      if (i <= len - step - 1) {
-        while (nums(i) == `val` && i <= (len - 1 - step)) {
-          step += 1
-          for (j <- 0 to len - i - 2) {
-            nums(i + j) = nums(i + j + 1)
-          }
-        }
+    var index = 0
+    for (i <-0 until  nums.length) {
+      if (nums(i) != `val`) {
+        nums(index) = nums(i)
+        index += 1
       }
-
     }
 
-    len - step
+    index
   }
 
 }
